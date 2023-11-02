@@ -1,11 +1,11 @@
 import React from 'react'
 import Checkbox from './Checkbox'
 
-function Task() {
+function Task({name,done}) {
   return (
     <div className='task'>
-        <Checkbox checked={true}/>
-        test task
+        <Checkbox checked={done}/>
+        {name}
 
     </div>
   )
