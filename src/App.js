@@ -13,7 +13,7 @@ function App() {
   },[tasks]);
 
   useEffect(()=>{
-    const task=JSON.parse(localStorage.getItem('tasks'));
+    const tasks=JSON.parse(localStorage.getItem('tasks'));
     setTasks(tasks);
   },[])
 
