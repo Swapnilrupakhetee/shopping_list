@@ -1,16 +1,21 @@
 
+import { useState } from 'react';
 import './App.css';
 import Task from './Task';
 import TaskForm from './TaskForm';
 
 function App() {
+  const[tasks,setTasks]=useState([]);
+  function addTask(name)
+  {
+
+  }
   return (
     <main>
       <div className="App">
-      <TaskForm/>
+      <TaskForm onAdd={name=>addTask(name)}/>
       <Task/>
-      <Task/>
-      <Task/>
+      
       
     </div>
     </main>
