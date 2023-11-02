@@ -44,6 +44,12 @@ form button{
 .task{
   background-color: rgb(59, 59, 59);
   border-radius: 10px;
-  padding: 6px;
+  padding: 6px 9px;
   margin-top: 7px;
+  display: flex;
+}
+.task svg{
+  height: 20px;
+  margin-right: 4px;
+  margin-left: 4px;
 }
