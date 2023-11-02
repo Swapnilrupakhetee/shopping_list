@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-function TaskForm() {
+function TaskForm({onAdd}) {
     const[taskName,setTaskName]=useState('');
   return (
     <div>
-        <form>
+        <form onSubmit={e=>onAdd(taskName)}>
         <button>+</button>
         <input type="text" 
         value={taskName} 
