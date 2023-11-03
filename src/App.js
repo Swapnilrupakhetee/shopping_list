@@ -36,17 +36,36 @@ function App() {
 
   }
   function getMessage(){
+    
     const percentage =numberComplete/numberTotal*100;
     const a=Math.round(percentage);
+    
     if(a===100)
     {
       return"You finished all tasks🎊";
 
     }
-    return a+"% complete";
+    else if(a>=0&&a<100){
+      return a+"% complete";
+
+    }
+    
+    
+    else if(a!==0)
+    {
+      return 'Be productive📚'
+    }
 
   }
+  function removeTask(indexToRemove){
+    setTasks(prev=>{
+      return prev.filter((taskObject,index)=>{
+        return index!==indexToRemove
+      });
+    });
 
+
+  }
 
   const numberComplete=tasks ? tasks.filter(t=>t.done).length:0;
   const numberTotal=tasks ? tasks.length : 0;
@@ -60,7 +79,9 @@ function App() {
       <div className="App">
       <TaskForm onAdd={addTask}/>
       {tasks&&tasks.map((tasks,index)=>(
-        <Task {...tasks} onToggle={done=> updateTaskDone(index,done)}/>
+        <Task {...tasks}
+        onTrash={()=>removeTask(index)}
+         onToggle={done=> updateTaskDone(index,done)}/>
       ))}
       
       
