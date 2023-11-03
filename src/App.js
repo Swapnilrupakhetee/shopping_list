@@ -36,7 +36,14 @@ function App() {
 
   }
   function getMessage(){
-    return'keep it going';
+    const percentage =numberComplete/numberTotal*100;
+    const a=Math.round(percentage);
+    if(a===100)
+    {
+      return"You finished all tasks🎊";
+
+    }
+    return a+"% complete";
 
   }
 

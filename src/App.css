@@ -48,6 +48,7 @@ form button{
   margin-top: 7px;
   display: flex;
   transition: opacity 0.3s ease-out ;
+  align-items: center;
 }
 .task svg{
   height: 20px;
@@ -63,6 +64,7 @@ form button{
 }
 .task span{
   position: relative;
+  
 }
 .task span:before{
   content: '';
@@ -80,4 +82,16 @@ form button{
 }
 h1,h2{
   text-align: center;
+}
+.taskname{
+  flex-grow: 1;
+}
+.trashicon{
+  background:transparent;
+  outline: none;
+  border: none;
+  
+}
+.trashicon svg{
+  fill: #48a2bb;
 }
