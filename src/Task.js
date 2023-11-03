@@ -4,7 +4,7 @@ import Checkbox from './Checkbox'
 function Task({name,done}) {
   return (
     <div className='task'>
-        <Checkbox checked={done}/>
+        <Checkbox checked={done} onClick={()=>alert("clicked")}/>
         {name}
 
     </div>
