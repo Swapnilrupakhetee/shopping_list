@@ -8,13 +8,16 @@ function App() {
   const[tasks,setTasks]=useState([]);
 
   useEffect(()=>{
-    if(tasks.length===0)return;
+    if(tasks === null ||tasks.length===0 )return;
     localStorage.setItem('tasks',JSON.stringify(tasks));
   },[tasks]);
 
   useEffect(()=>{
     const tasks=JSON.parse(localStorage.getItem('tasks'));
-    setTasks(tasks);
+    
+    if (tasks !== null) {
+      setTasks(tasks);
+    }
   },[])
 
   function addTask(name){
@@ -38,18 +41,18 @@ function App() {
   }
 
 
-  const numberComplete=tasks.filter(t=>t.done).length;
-  const numberTotal=tasks.length;
+  const numberComplete=tasks ? tasks.filter(t=>t.done).length:0;
+  const numberTotal=tasks ? tasks.length : 0;
   
 
 
   return (
     <main>
       <h1>{numberComplete}/{numberTotal} complete</h1>
-      <h2>{getMessage}</h2>
+      <h2>{getMessage()}</h2>
       <div className="App">
       <TaskForm onAdd={addTask}/>
-      {tasks.map((tasks,index)=>(
+      {tasks&&tasks.map((tasks,index)=>(
         <Task {...tasks} onToggle={done=> updateTaskDone(index,done)}/>
       ))}
       
