@@ -69,6 +69,14 @@ function App() {
 
   const numberComplete=tasks ? tasks.filter(t=>t.done).length:0;
   const numberTotal=tasks ? tasks.length : 0;
+
+  function renameTask(index,newName){
+    setTasks(prev=>{
+      const newTask=[...prev];
+      return [...prev]
+    })
+
+  }
   
 
 
@@ -80,6 +88,7 @@ function App() {
       <TaskForm onAdd={addTask}/>
       {tasks&&tasks.map((tasks,index)=>(
         <Task {...tasks}
+        onRename={newName =>renameTask(index,newName)}
         onTrash={()=>removeTask(index)}
          onToggle={done=> updateTaskDone(index,done)}/>
       ))}

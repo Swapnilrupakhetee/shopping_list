@@ -15,7 +15,7 @@ function Task({name,done,onToggle,onTrash,onRename}) {
         )}
         {editMode &&(
           <form>
-            <input type='text' value={name} onChange={(ev)=>}/>
+            <input type='text' value={name} onChange={(ev)=>onRename(ev.target.value)}/>
           </form>
 
         )}
