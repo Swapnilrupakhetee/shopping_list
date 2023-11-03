@@ -73,7 +73,8 @@ function App() {
   function renameTask(index,newName){
     setTasks(prev=>{
       const newTask=[...prev];
-      return [...prev]
+      newTask[index].name=newName;
+      return newTask;
     })
 
   }
