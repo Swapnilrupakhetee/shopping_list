@@ -18,6 +18,7 @@ function App() {
   },[])
 
   function addTask(name){
+    if(name==="") return alert('please enter task name');
     setTasks(prev=>{
         return [...prev,{name:name,done:false}];
       });
@@ -31,10 +32,21 @@ function App() {
     })
 
   }
+  function getMessage(){
+    return'keep it going';
+
+  }
+
+
+  const numberComplete=tasks.filter(t=>t.done).length;
+  const numberTotal=tasks.length;
+  
 
 
   return (
     <main>
+      <h1>{numberComplete}/{numberTotal} complete</h1>
+      <h2>{getMessage}</h2>
       <div className="App">
       <TaskForm onAdd={addTask}/>
       {tasks.map((tasks,index)=>(
