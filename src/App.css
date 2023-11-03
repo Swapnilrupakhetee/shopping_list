@@ -50,6 +50,12 @@ form button{
 }
 .task svg{
   height: 20px;
-  margin-right: 4px;
+  margin-right: 6px;
   margin-left: 4px;
+  fill:#61DAFB;
+}
+.task.done{
+  opacity: 20%;
+  text-decoration: line-through;
+
 }
